@@ -1,0 +1,96 @@
+/* 모든 요소의 기본 margin과 padding을 0으로 설정하여 브라우저의 기본 스타일을 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 컨테이너는 2개의 열을 가지고, 각 열 사이에 간격을 설정 */
+.container {
+  margin: 100px; /* 컨테이너 주변에 40px의 여백 추가 */
+  display: grid; /* 그리드 레이아웃 사용 */
+  grid-template-columns: 2fr 1fr; /* 두 개의 열을 설정, 왼쪽 열은 오른쪽 열의 두 배 크기 */
+  gap: 40px; /* 열 사이에 40px의 간격 추가 */
+}
+
+/* 왼쪽 이미지 영역 */
+.figure-left {
+  position: relative; /* 이미지 위에 텍스트를 올리기 위해 부모에 relative 추가 */
+  background-color: red; /* 테스트용 배경색 */
+  height: 100%; /* 왼쪽 이미지를 전체 높이에 맞춤 */
+}
+
+/* 오른쪽 이미지 영역 */
+.figure-right {
+  display: grid; /* 그리드 레이아웃을 사용하여 이미지들 세로로 배치 */
+  gap: 40px; /* 세로 간격 40px */
+  height: 100%; /* 오른쪽 이미지를 전체 높이에 맞춤 */
+  position: relative; /* 텍스트가 이미지를 기준으로 배치되도록 relative 추가 */
+}
+
+/* 오른쪽 각 figure 요소에 relative 추가 */
+.figure {
+  position: relative; /* 텍스트가 이미지를 기준으로 배치되도록 relative 추가 */
+}
+
+/* 이미지 스타일 설정 */
+img {
+  display: block; /* 이미지가 블록 요소처럼 취급되어 줄 바꿈이 생기지 않도록 설정 */
+  object-fit: cover; /* 이미지가 부모 요소를 꽉 채우도록 설정 (비율 유지) */
+  width: 100%; /* 이미지를 부모 요소에 맞춰 너비를 100%로 설정 */
+  height: 100%; /* 이미지를 부모 요소에 맞춰 높이를 100%로 설정 */
+  position: relative; /* 이미지 위에 그라데이션을 추가할 수 있도록 상대적인 위치 설정 */
+}
+
+/* 이미지 밑에 10px 그라데이션 추가 */
+.figure-left::after,
+.figure-right::after {
+  content: ""; /* 가상 요소에 내용 추가 */
+  position: absolute; /* 절대 위치로 이미지 아래에 배치 */
+  bottom: 0; /* 이미지의 하단과 일치 */
+  left: 0;
+  width: 100%; /* 그라데이션이 이미지 너비를 덮도록 설정 */
+  height: 10px; /* 그라데이션의 높이 */
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* 블랙에서 투명으로 변하는 그라데이션 */
+}
+
+/* 메인 타이틀 텍스트 스타일 (왼쪽 이미지 위에 배치) */
+.title-overlay-main {
+  position: absolute; /* 부모 요소인 .figure-left에 상대적인 절대 위치 설정 */
+  bottom: 10px; /* 이미지의 하단에서 10px 떨어진 위치 */
+  left: 10px; /* 이미지의 좌측에서 10px 떨어진 위치 */
+  color: white; /* 텍스트 색상: 흰색 */
+  font-size: 24px; /* 폰트 크기: 24px */
+  font-weight: bold; /* 폰트 굵기: bold */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 텍스트에 그림자 효과 추가 */
+  text-align: left; /* 텍스트 왼쪽 정렬 */
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정 배경색 */
+  padding: 10px; /* 텍스트 주위에 10px의 여백 추가 */
+}
+
+/* 오른쪽 상단 타이틀 텍스트 스타일 (오른쪽 첫 번째 이미지 위에 배치) */
+.title-overlay-right-top {
+  position: absolute; /* 부모 요소인 .figure-right에 상대적인 절대 위치 설정 */
+  bottom: 10px; /* 이미지의 상단에서 10px 떨어진 위치 */
+  left: 10px; /* 이미지의 좌측에서 10px 떨어진 위치 */
+  color: white; /* 텍스트 색상: 흰색 */
+  font-size: 24px; /* 폰트 크기: 24px */
+  font-weight: bold; /* 폰트 굵기: bold */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 텍스트에 그림자 효과 추가 */
+  text-align: left; /* 텍스트 왼쪽 정렬 */
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정 배경색 */
+  padding: 10px; /* 텍스트 주위에 10px의 여백 추가 */
+}
+
+/* 오른쪽 하단 타이틀 텍스트 스타일 (오른쪽 두 번째 이미지 위에 배치) */
+.title-overlay-right-down {
+  position: absolute; /* 부모 요소인 .figure-right에 상대적인 절대 위치 설정 */
+  bottom: 10px; /* 이미지의 하단에서 10px 떨어진 위치 */
+  left: 10px; /* 이미지의 좌측에서 10px 떨어진 위치 */
+  color: white; /* 텍스트 색상: 흰색 */
+  font-size: 24px; /* 폰트 크기: 24px */
+  font-weight: bold; /* 폰트 굵기: bold */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 텍스트에 그림자 효과 추가 */
+  text-align: left; /* 텍스트 왼쪽 정렬 */
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정 배경색 */
+  padding: 10px; /* 텍스트 주위에 10px의 여백 추가 */
+}

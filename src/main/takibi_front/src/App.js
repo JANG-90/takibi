@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css"; // 파일 경로에 맞게 수정
+import Header from "./layouts/Header/Header.js";
+import Footer from "./layouts/Footer/Footer.js";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* 상단 헤더 */}
+      <Header />
+
+      {/* 하단 푸터 */}
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
